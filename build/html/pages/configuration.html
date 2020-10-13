@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuration &mdash; chatbot-universal 0.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> chatbot-universal
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Indices and tables</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="about.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#general-suggestions">General suggestions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#apache">Apache</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#redis">Redis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#laravel">Laravel</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-env-file">create <code class="docutils literal notranslate"><span class="pre">.env</span></code> file:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#database-ad-queues">database ad queues:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#possible-problems">possible problems:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#laravel-echo-server">Laravel Echo Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#telegram">Telegram</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">chatbot-universal</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/pages/configuration.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuration">
+<span id="id1"></span><h1>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-suggestions">
+<h2>General suggestions<a class="headerlink" href="#general-suggestions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>I am using  Ubuntu 19.10</p></li>
+<li><p>Server version: Apache/2.4.41</p></li>
+<li><p>mysql  Ver 8.0.20</p></li>
+<li><p>php 7.4.8</p></li>
+<li><p>VPS with 40 Gb and 2 Gb ram</p></li>
+</ul>
+</div>
+<div class="section" id="apache">
+<h2>Apache<a class="headerlink" href="#apache" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>in case of the server put the project in <code class="docutils literal notranslate"><span class="pre">/var/www/html</span></code></p></li>
+<li><p>change permissions of the folder <em>/storage</em> and all it files and directories inside of the project:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chmod -R <span class="m">774</span> storage
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>change owner and group of the folder <em>/storage</em> and all it files and directories inside of the project to <em>www-data</em>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>chown -R www-data:www-data storage
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><dl>
+<dt>in your virtual host (in my case <code class="docutils literal notranslate"><span class="pre">/etc/apache2/sites-available/chatbot-universal.conf</span></code>):</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&lt;VirtualHost *:80&gt;
+ServerAdmin webmaster@localhost
+ServerName <span class="m">00</span>.000.000.000 <span class="c1"># put your ip here</span>
+ServerAlias chatbot-universal.com <span class="c1"># put your domain here</span>
+DocumentRoot /var/www/html/chatbot-universal/public <span class="c1"># pointing to your public folder</span>
+
+&lt;Directory /var/www/html/chatbot-universal&gt;
+    AllowOverride All
+&lt;/Directory&gt;
+
+ErrorLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/error.log
+CustomLog <span class="si">${</span><span class="nv">APACHE_LOG_DIR</span><span class="si">}</span>/access.log combined
+RewriteEngine on
+RewriteCond %<span class="o">{</span>SERVER_NAME<span class="o">}</span> <span class="o">=</span>chatbot-universal.com <span class="c1"># put your server name here</span>
+RewriteRule ^ https://%<span class="o">{</span>SERVER_NAME<span class="o">}</span>%<span class="o">{</span>REQUEST_URI<span class="o">}</span> <span class="o">[</span>END,NE,R<span class="o">=</span>permanent<span class="o">]</span>
+&lt;/VirtualHost&gt;
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>restart apache:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo service apache2 restart
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="redis">
+<h2>Redis<a class="headerlink" href="#redis" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>you can change the port in <code class="docutils literal notranslate"><span class="pre">/etc/redis/redis.conf</span></code>, default is 6379.</p></li>
+<li><dl>
+<dt>run redis server:</dt><dd><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo systemctl start redis
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="laravel">
+<h2>Laravel<a class="headerlink" href="#laravel" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-env-file">
+<h3>create <code class="docutils literal notranslate"><span class="pre">.env</span></code> file:<a class="headerlink" href="#create-env-file" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">APP_NAME</span><span class="o">=</span>
+<span class="nv">APP_ENV</span><span class="o">=</span><span class="nb">local</span>
+<span class="nv">APP_KEY</span><span class="o">=</span>
+<span class="nv">APP_DEBUG</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">APP_URL</span><span class="o">=</span><span class="s2">&quot;http://localhost:8000&quot;</span>
+
+<span class="nv">LOG_CHANNEL</span><span class="o">=</span>stack
+
+<span class="nv">DB_CONNECTION</span><span class="o">=</span>mysql
+<span class="nv">DB_HOST</span><span class="o">=</span><span class="m">127</span>.0.0.1
+<span class="nv">DB_PORT</span><span class="o">=</span><span class="m">3306</span>
+<span class="nv">DB_DATABASE</span><span class="o">=</span>oac
+<span class="nv">DB_USERNAME</span><span class="o">=</span>root
+<span class="nv">DB_PASSWORD</span><span class="o">=</span>
+
+<span class="nv">BROADCAST_DRIVER</span><span class="o">=</span>redis
+<span class="nv">CACHE_DRIVER</span><span class="o">=</span>file
+<span class="nv">QUEUE_CONNECTION</span><span class="o">=</span>redis
+<span class="nv">SESSION_DRIVER</span><span class="o">=</span>file
+<span class="nv">SESSION_LIFETIME</span><span class="o">=</span><span class="m">120</span>
+
+<span class="nv">REDIS_HOST</span><span class="o">=</span><span class="m">127</span>.0.0.1
+<span class="nv">REDIS_PASSWORD</span><span class="o">=</span>null
+<span class="nv">REDIS_PORT</span><span class="o">=</span><span class="m">6379</span>
+
+<span class="nv">MAIL_MAILER</span><span class="o">=</span>smtp
+<span class="nv">MAIL_HOST</span><span class="o">=</span>smtp.mailtrap.io
+<span class="nv">MAIL_PORT</span><span class="o">=</span><span class="m">2525</span>
+<span class="nv">MAIL_USERNAME</span><span class="o">=</span>null
+<span class="nv">MAIL_PASSWORD</span><span class="o">=</span>null
+<span class="nv">MAIL_ENCRYPTION</span><span class="o">=</span>null
+<span class="nv">MAIL_FROM_ADDRESS</span><span class="o">=</span>null
+<span class="nv">MAIL_FROM_NAME</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">APP_NAME</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nv">AWS_ACCESS_KEY_ID</span><span class="o">=</span>
+<span class="nv">AWS_SECRET_ACCESS_KEY</span><span class="o">=</span>
+<span class="nv">AWS_DEFAULT_REGION</span><span class="o">=</span>us-east-1
+<span class="nv">AWS_BUCKET</span><span class="o">=</span>
+
+<span class="nv">PUSHER_APP_ID</span><span class="o">=</span>
+<span class="nv">PUSHER_APP_KEY</span><span class="o">=</span>
+<span class="nv">PUSHER_APP_SECRET</span><span class="o">=</span>
+<span class="nv">PUSHER_APP_CLUSTER</span><span class="o">=</span>mt1
+
+<span class="nv">MIX_PUSHER_APP_KEY</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PUSHER_APP_KEY</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="nv">MIX_PUSHER_APP_CLUSTER</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">PUSHER_APP_CLUSTER</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nv">JWT_SECRET</span><span class="o">=</span>
+<span class="nv">MIX_APP_URL</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">APP_URL</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="nv">GOOGLE_APPLICATION_CREDENTIALS</span><span class="o">=</span>/*.json
+<span class="nv">DIALOGFLOW_PROJECT_ID</span><span class="o">=</span>
+
+<span class="nv">TELEGRAM_BOT_TOKEN</span><span class="o">=</span>
+</pre></div>
+</div>
+<ul>
+<li><dl class="simple">
+<dt>APP_NAME</dt><dd><p>Put the name you would like to. (better between “”)</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>APP_KEY</dt><dd><p>For the key run the artisan command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>php artisan key:generate
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>APP_URL</dt><dd><p>you can put your url for the app, that one I use locally with <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">artisan</span> <span class="pre">serve</span></code>. When you upload the project, please change it to the appropriate.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Each time you change it, you have to run <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">prod</span></code> command to rebuild the js files.</p>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DB_DATABASE</dt><dd><p>put the name of your created database</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DB_USERNAME</dt><dd><p>put the username of your created database</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DB_PASSWORD</dt><dd><p>put the password of the user of your created database</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>REDIS_PORT</dt><dd><p>you can change the port, that one is the default.</p>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>JWT_SECRET</dt><dd><p>To generate the secret key run this command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>php artisan jwt:secret
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>GOOGLE_APPLICATION_CREDENTIALS</dt><dd><p>A root to <code class="docutils literal notranslate"><span class="pre">.json</span></code> key file from google cloud service account. You can know how to do it here: <a class="reference external" href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys">https://cloud.google.com/iam/docs/creating-managing-service-account-keys</a>. you will need all permissions for Dialogflow.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>DIALOGFLOW_PROJECT_ID</dt><dd><p>It’s the id(name) of the project in your dialogflow general configuration.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>TELEGRAM_BOT_TOKEN</dt><dd><p><em>telegram bot token</em> from your bot created before.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="database-ad-queues">
+<h3>database ad queues:<a class="headerlink" href="#database-ad-queues" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><p>make a migration to your database previously created and create 2 default users(admin and first user). You can find them and change them in <code class="docutils literal notranslate"><span class="pre">database/seeds/DatabaseSeeder.php</span></code>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>php artisan migrate --seed
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>initiate a process for laravel <a class="reference external" href="https://laravel.com/docs/8.x/queues">queues</a>:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nohup sudo php artisan queue:work <span class="p">&amp;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="possible-problems">
+<h3>possible problems:<a class="headerlink" href="#possible-problems" title="Permalink to this headline">¶</a></h3>
+<ul>
+<li><dl>
+<dt>error 500:</dt><dd><ul>
+<li><p>after every significant change in project clean cache:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>php artisan optimize:clear
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>run command of composer:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>php artisan clear-compiled
+composer dump-autoload
+php artisan optimize:clear
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="laravel-echo-server">
+<h2>Laravel Echo Server<a class="headerlink" href="#laravel-echo-server" title="Permalink to this headline">¶</a></h2>
+<p>run the command:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>laravel-echo-server init
+</pre></div>
+</div>
+</div></blockquote>
+<p>The cli tool will help you setup a laravel-echo-server.json file in the root directory of your project. This file will be loaded by the server during start up. You may edit this file later on to manage the configuration of your server.</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nohup sudo laravel-echo-server start <span class="p">&amp;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="telegram">
+<h2>Telegram<a class="headerlink" href="#telegram" title="Permalink to this headline">¶</a></h2>
+<p>run the url directly in your browser:</p>
+<p><a class="reference external" href="https://api.telegram.org/bot">https://api.telegram.org/bot</a> + <em>telegram bot token</em> (TELEGRAM_BOT_TOKEN) + /setWebhook?url= + <em>your app url</em> (APP_URL) + /api/telegram/webhook</p>
+<p>That will put the telegram webhook of the chatbot on the mentioned url.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, sergiobogatsky
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
